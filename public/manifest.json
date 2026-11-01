@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "LeetCode to GitHub Sync",
+  "version": "0.1.0",
+  "description": "Syncs your accepted LeetCode submissions to a GitHub repository you choose.",
+  "action": { "default_popup": "popup.html", "default_title": "LeetCode to GitHub Sync" },
+  "background": { "service_worker": "background.js", "type": "module" },
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": ["https://leetcode.com/problems/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
